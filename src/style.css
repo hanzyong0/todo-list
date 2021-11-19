@@ -1,3 +1,27 @@
-p {
-    color: red;
+:root {
+    --header-color: #333;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: var(--header-color);
+    color: white;
+    height: 100px;
+    font-size: 3em;
+    font-weight: 600;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 100px;
 }

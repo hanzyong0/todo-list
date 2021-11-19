@@ -1,6 +1,4 @@
 import './style.css';
+import createHeader from './header.js';
 
-const p = document.createElement('p');
-p.textContent = 'hi';
-
-document.body.appendChild(p);
+document.body.appendChild(createHeader());
