@@ -1,5 +1,14 @@
 import './style.css';
 import createHeader from './header.js';
+import createNav from './nav.js';
 
-// document.body.appendChild(createHeader());
+document.body.appendChild(createHeader());
 
+const main = document.createElement('main');
+document.body.appendChild(main);
+
+main.appendChild(createNav());
+
+const content = document.createElement('div');
+content.classList.add('content');
+main.appendChild(content);

@@ -57,7 +57,7 @@ nav {
     background-color: var(--secondary-light);
 }
 
-.button-container, 
+.todo-container, 
 .project-container {
     flex: 1;
     width: 100%;
