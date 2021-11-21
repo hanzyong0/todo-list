@@ -48,6 +48,7 @@ main {
     flex: 1;
 }
 
+/* Nav bar */
 nav {
     flex: 1 1 0;
     display: flex;
@@ -55,6 +56,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     background-color: var(--secondary-light);
+    border-right: 1px solid black;
 }
 
 .todo-container, 
@@ -119,6 +121,8 @@ hr {
     background-color: var(--secondary-light);
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
+    white-space: normal;
+    text-align: left;
 }
 
 .hide {
@@ -134,11 +138,69 @@ hr {
     visibility: visible;
 }
 
+/* Content */
 .content {
     flex: 5 1 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--primary-light);
+    padding: 30px;
+}
+
+.content-display {
+    flex: 1 1 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.title {
+    border: 1px solid black;
+    font-size: 2em;
+    font-weight: 900;
+    overflow: auto;
+    white-space: normal;
+    text-align: left;
+}
+
+.description-display {
+    margin-top: 5px;
+    border: 1px solid black;
+    font-size: 1.3em;
+    flex: 1 1 0;
+    width: 100%;
+    padding: 3px;
+    overflow: auto;
+    white-space: normal;
+}
+
+.content-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.edit,
+.delete {
+    padding: 10px 100px 10px 100px;
+    font-size: 1.2em;
+}
+
+.edit:hover,
+.delete:hover {
+    background-color: var(--secondary-light);
 }
