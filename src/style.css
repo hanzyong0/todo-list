@@ -148,6 +148,60 @@ hr {
     padding: 30px;
 }
 
+/* Form popup */
+.form-popup {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    width: calc(100% - 250px);
+    height: calc(100% - 90px);
+    padding: 10px 10px 25px 10px;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.form-title-control,
+#form-title {
+    height: 30px;
+    width: 100%;
+}
+
+.form-description-control,
+#form-description {
+    height: 100%;
+    width: 100%;
+}
+
+#form-title,
+#form-description {
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+.form-misc-control {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100px;
+    margin-top: 20px;
+}
+
+#priority,
+#date {
+    line-height: 20px;
+}
+
+/* Content display */
 .content-display {
     flex: 1 1 0;
     height: 100%;
@@ -167,7 +221,6 @@ hr {
 }
 
 .title {
-    border: 1px solid black;
     font-size: 2em;
     font-weight: 900;
     overflow: auto;
@@ -175,15 +228,29 @@ hr {
     text-align: left;
 }
 
+.content-display p {
+    font-size: 0.9em;
+}
+
 .description-display {
     margin-top: 5px;
+    margin-bottom: 20px;
     border: 1px solid black;
     font-size: 1.3em;
     flex: 1 1 0;
     width: 100%;
-    padding: 3px;
+    padding: 5px;
     overflow: auto;
     white-space: normal;
+}
+
+.misc-display {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .content-button {
@@ -192,6 +259,7 @@ hr {
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
+    min-height: 50px;
 }
 
 .edit,
@@ -200,7 +268,11 @@ hr {
     font-size: 1.2em;
 }
 
-.edit:hover,
-.delete:hover {
-    background-color: var(--secondary-light);
+.edit:hover {
+    border: 3px solid green;
 }
+
+.delete:hover {
+    border: 3px solid red;
+}
+

@@ -19,7 +19,7 @@
                 </div>
                 <div class="list-display">
                     <button class="item">
-                        hi
+
                         <div class="hide">X</div>
                     </button>
                 </div>
@@ -32,20 +32,51 @@
                 </div>
                 <div class="list-display">
                     <button class="item">
-                        hi
+
                         <div class="hide">X</div>
                     </button>
                 </div>
             </div>
         </nav>
         <div class="content">
+            <div class="form-popup">
+                <form class="form-container">
+                    <div class="form-title-control">
+                        <label for="form-title">Title:</label>
+                        <br>
+                        <input type="text" id="form-title">
+                    </div>
+                    <div class="form-description-control">
+                        <label for="form-description">Description:</label>
+                        <br>
+                        <textarea type="text" id="form-description"></textarea>
+                    </div>
+                    <div class="form-misc-control">
+                        <div>
+                            <label for="priority">Priority:</label>
+                            <input type="number" id="priority">
+                        </div>
+                        <div>
+                            <label for="date">Due Date:</label>
+                            <input type="date" id="date">
+                        </div>
+                    </div>
+                    <div class="content-button">
+                        <button class="edit" type="button">Save</button>
+                        <button class="delete" type="button">Delete</button>
+                    </div>
+                </form>
+            </div>
             <div class="content-display">
                 <div class="top">
-                    <div class="title">hello</div>
-                    <div class="due-date">Due Date:</div>
+                    <div class="title"></div>
                 </div>
                 <p>Description</p>
-                <div class="description-display">hi</div>
+                <div class="description-display"></div>
+                <div class="misc-display">
+                    <div>Priority: <span class="priority-date"></span></div>
+                    <div>Due Date: <span class="due-date"></span></div>
+                </div>
                 <div class="content-button">
                     <button class="edit" type="button">Edit</button>
                     <button class="delete" type="button">Delete</button>
