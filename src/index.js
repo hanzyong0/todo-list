@@ -1,6 +1,13 @@
 import './style.css';
-import createHeader from './header.js';
-import createMain from './main.js';
+import * as buttons from './buttons.js';
 
-document.body.appendChild(createHeader());
-document.body.appendChild(createMain());
+const d = new Date();
+const year = d.getFullYear();
+const month = d.getMonth() + 1;
+const day = d.getDate();
+const today = `${year}/${month}/${day}`;
+console.log(today);
+
+buttons.addButton();
+buttons.deleteButton();
+buttons.saveButton();
