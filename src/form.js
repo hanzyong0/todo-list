@@ -1,4 +1,4 @@
-import { saveButton, formDeleteButton } from './buttons';
+import { saveButton, formDeleteButton, projectSaveButton, projectFormDeleteButton } from './buttons';
 
 function createItemForm() {
     const formPopup = document.querySelector('.form-popup');
@@ -52,7 +52,7 @@ function createItemForm() {
     formMiscControl.appendChild(div1);
 
     const label1 = document.createElement('label');
-    label1.for = 'priority';
+    label1.htmlFor = 'priority';
     label1.textContent = 'Priority: ';
     div1.appendChild(label1);
 
@@ -65,7 +65,7 @@ function createItemForm() {
     formMiscControl.appendChild(div2);
 
     const label2 = document.createElement('label');
-    label2.for = 'date';
+    label2.htmlFor = 'date';
     label2.textContent = 'Due Date: ';
     div2.appendChild(label2);
 
@@ -100,6 +100,53 @@ function createItemForm() {
     contentButton.appendChild(delete1);
 }
 
+function createProjectForm() {
+    const formPopup = document.querySelector('.form-popup');
+
+    // Form
+    const formAddProject = document.createElement('form');
+    formAddProject.classList.add('form-add-project');
+    formPopup.appendChild(formAddProject);
+
+    const div = document.createElement('div');
+    formAddProject.appendChild(div);
+
+    const label = document.createElement('label');
+    label.htmlFor = 'project-title';
+    label.textContent = 'Project Title: ';
+    div.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'project-title';
+    div.appendChild(input);
+
+    // Buttons
+    const projectButtons = document.createElement('div');
+    projectButtons.classList.add('project-buttons');
+    formAddProject.appendChild(projectButtons);
+
+    const save = document.createElement('button');
+    save.classList.add('edit');
+    save.id = 'project-save';
+    save.type = 'button';
+    save.textContent = 'Save';
+    save.addEventListener('click', () => {
+        projectSaveButton();
+    });
+    projectButtons.appendChild(save);
+
+    const delete1 = document.createElement('button');
+    delete1.classList.add('delete');
+    delete1.id = 'project-delete';
+    delete1.type = 'button';
+    delete1.textContent = 'Delete';
+    delete1.addEventListener('click', () => {
+        projectFormDeleteButton();
+    });
+    projectButtons.appendChild(delete1);
+}
+
 function deleteForm() {
     const formPopup = document.querySelector('.form-popup');
 
@@ -108,4 +155,4 @@ function deleteForm() {
     };
 }
 
-export { createItemForm, deleteForm };
+export { createItemForm, deleteForm, createProjectForm };

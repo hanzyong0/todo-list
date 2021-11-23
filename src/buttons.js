@@ -1,18 +1,29 @@
 import { List } from "./item";
 import { addItemTodo, displayTodoList } from './todo';
 import { removeDisplay } from "./display";
-import { createItemForm, deleteForm } from "./form";
+import { createItemForm, deleteForm, createProjectForm } from "./form";
+import { addItemProject, displayProjectList } from "./project";
 
 
-function addButton() {
+function todoAddButton() {
     const form = document.querySelector('.form-popup');
-    const buttons = document.querySelectorAll('.round-button');
+    const button = document.querySelector('#todo-add');
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            createItemForm();
-            form.style.display = 'flex';
-        });
+    button.addEventListener('click', () => {
+        deleteForm();
+        createItemForm();
+        form.style.display = 'flex';
+    });
+}
+
+function projectAddButton() {
+    const form = document.querySelector('.form-popup');
+    const button = document.querySelector('#project-add');
+
+    button.addEventListener('click', () => {
+        deleteForm();
+        createProjectForm();
+        form.style.display = 'flex';
     });
 }
 
@@ -62,4 +73,41 @@ function displayDeleteButton() {
     });
 }
 
-export { addButton, formDeleteButton, removeButton, saveButton, displayDeleteButton };
+function projectSaveButton() {
+    const projectTitle = document.querySelector('#project-title');
+    const formAddProject = document.querySelector('.form-add-project');
+    const form = document.querySelector('.form-popup');
+
+    if (projectTitle.value === '') {
+        form.style.display = 'none';
+        formAddProject.reset();
+        deleteForm();
+    } else {
+        addItemProject();
+        displayProjectList();
+        form.style.display = 'none';
+        formAddProject.reset();
+        deleteForm();
+    }
+}
+
+function removeProjectButton(index) {
+    const { projectList } = List;
+
+    projectList.splice(index, 1);
+    displayProjectList();
+}
+
+function projectFormDeleteButton() {
+    const formAddProject = document.querySelector('.form-add-project');
+    const form = document.querySelector('.form-popup');
+
+    formAddProject.reset();
+    form.style.display = 'none';
+    deleteForm();
+}
+
+export {
+    todoAddButton, formDeleteButton, removeButton, saveButton, displayDeleteButton,
+    projectAddButton, projectSaveButton, removeProjectButton, projectFormDeleteButton
+};

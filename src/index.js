@@ -8,7 +8,8 @@ const day = d.getDate();
 const today = `${year}/${month}/${day}`;
 console.log(today);
 
-buttons.addButton();
+buttons.todoAddButton();
+buttons.projectAddButton();
 // buttons.formDeleteButton();
 // buttons.saveButton();
 buttons.displayDeleteButton();
