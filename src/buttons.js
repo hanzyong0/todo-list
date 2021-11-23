@@ -1,27 +1,28 @@
 import { List } from "./item";
 import { addItemTodo, displayTodoList } from './todo';
 import { removeDisplay } from "./display";
+import { createItemForm, deleteForm } from "./form";
 
-const form = document.querySelector('.form-popup');
-const formContainer = document.querySelector('.form-container');
 
 function addButton() {
+    const form = document.querySelector('.form-popup');
     const buttons = document.querySelectorAll('.round-button');
 
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
+            createItemForm();
             form.style.display = 'flex';
         });
     });
 }
 
 function formDeleteButton() {
-    const button = document.querySelector('#form-delete');
+    const form = document.querySelector('.form-popup');
+    const formContainer = document.querySelector('.form-container');
 
-    button.addEventListener('click', () => {
-        formContainer.reset();
-        form.style.display = 'none';
-    });
+    formContainer.reset();
+    form.style.display = 'none';
+    deleteForm();
 }
 
 function removeButton(index) {
@@ -33,13 +34,20 @@ function removeButton(index) {
 
 function saveButton() {
     const button = document.querySelector('#save');
+    const form = document.querySelector('.form-popup');
+    const formContainer = document.querySelector('.form-container');
 
-    button.addEventListener('click', () => {
+    if (document.querySelector('#form-title').value === '') {
+        form.style.display = 'none';
+        formContainer.reset();
+        deleteForm();
+    } else {
         addItemTodo();
         displayTodoList();
         form.style.display = 'none';
         formContainer.reset();
-    });
+        deleteForm();
+    };
 }
 
 function displayDeleteButton() {
