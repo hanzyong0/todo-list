@@ -9,5 +9,6 @@ const today = `${year}/${month}/${day}`;
 console.log(today);
 
 buttons.addButton();
-buttons.deleteButton();
+buttons.formDeleteButton();
 buttons.saveButton();
+buttons.displayDeleteButton();

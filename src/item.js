@@ -2,7 +2,8 @@
 const List = (() => {
     const todoList = [];
     const projectList = [];
-    return { todoList, projectList };
+    const currentIndex = [];
+    return { todoList, projectList, currentIndex };
 })();
 
 // Factory function to create an item

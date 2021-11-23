@@ -1,5 +1,6 @@
 import { List } from "./item";
 import { addItemTodo, displayTodoList } from './todo';
+import { removeDisplay } from "./display";
 
 const form = document.querySelector('.form-popup');
 const formContainer = document.querySelector('.form-container');
@@ -14,14 +15,12 @@ function addButton() {
     });
 }
 
-function deleteButton() {
-    const buttons = document.querySelectorAll('.delete');
+function formDeleteButton() {
+    const button = document.querySelector('#form-delete');
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            formContainer.reset();
-            form.style.display = 'none';
-        });
+    button.addEventListener('click', () => {
+        formContainer.reset();
+        form.style.display = 'none';
     });
 }
 
@@ -43,5 +42,16 @@ function saveButton() {
     });
 }
 
+function displayDeleteButton() {
+    const { todoList, currentIndex } = List;
+    const button = document.querySelector('#display-delete');
 
-export { addButton, deleteButton, removeButton, saveButton };
+    button.addEventListener('click', () => {
+        todoList.splice(currentIndex[0], 1);
+        removeDisplay();
+        displayTodoList();
+        currentIndex[0] = '';
+    });
+}
+
+export { addButton, formDeleteButton, removeButton, saveButton, displayDeleteButton };
