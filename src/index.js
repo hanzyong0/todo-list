@@ -8,8 +8,16 @@ import { displayProjectList } from './project';
     const a = JSON.parse(localStorage.getItem('todoList'));
     const b = JSON.parse(localStorage.getItem('projectList'));
 
-    todoList.splice(0, todoList.length, ...a);
-    projectList.splice(0, projectList.length, ...b);
+    if (a === null) {
+        todoList.splice(0, todoList.length);
+    } else {
+        todoList.splice(0, todoList.length, ...a);
+    };
+    if (b === null) {
+        projectList.splice(0, projectList.length);
+    } else {
+        projectList.splice(0, projectList.length, ...b);
+    };
 })();
 
 (() => {
