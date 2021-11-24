@@ -1,9 +1,8 @@
 import { saveButton, formDeleteButton, projectSaveButton, projectFormDeleteButton, taskSaveButton } from './buttons';
-import { addTaskProject, displayTaskList } from './project';
+import { displayTaskList } from './project';
 
 function createItemForm() {
     const formPopup = document.querySelector('.form-popup');
-    formPopup.style.backgroundColor = 'white';
 
     // Form
     const formContainer = document.createElement('form');

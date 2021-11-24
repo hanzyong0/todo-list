@@ -1,9 +1,9 @@
-import { removeProjectButton, taskSaveButton } from "./buttons";
-import { createItemForm, deleteForm, createTaskForm } from "./form";
+import { removeProjectButton } from "./buttons";
+import { deleteForm, createTaskForm } from "./form";
 import { List, Project, Task } from "./item";
 
 function addItemProject() {
-    const { projectList, currentIndex } = List;
+    const { projectList } = List;
 
     const title = document.querySelector('#project-title').value;
 
@@ -50,7 +50,7 @@ function displayProjectList() {
     }
 }
 
-function projectDisplay(index) {
+function projectDisplay() {
     const { projectList, currentIndex } = List;
     const formPopup = document.querySelector('.form-popup');
 
