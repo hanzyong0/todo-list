@@ -1,10 +1,8 @@
 import { removeProjectButton } from "./buttons";
 import { deleteForm, createTaskForm } from "./form";
-import { List, Project, Task } from "./item";
+import { projectList, currentIndex, Project, storeProject, Task } from "./item";
 
 function addItemProject() {
-    const { projectList } = List;
-
     const title = document.querySelector('#project-title').value;
 
     const project = Project(title);
@@ -12,8 +10,6 @@ function addItemProject() {
 }
 
 function addTaskProject() {
-    const { currentIndex, projectList } = List;
-
     const title = document.querySelector('#task-title').value;
 
     const task = Task(title);
@@ -21,8 +17,6 @@ function addTaskProject() {
 }
 
 function displayProjectList() {
-    const { projectList, currentIndex } = List;
-
     const list = document.querySelector('#project-list');
     while (list.hasChildNodes()) {
         list.removeChild(list.lastChild);
@@ -51,7 +45,6 @@ function displayProjectList() {
 }
 
 function projectDisplay() {
-    const { projectList, currentIndex } = List;
     const formPopup = document.querySelector('.form-popup');
 
     deleteForm();
@@ -93,8 +86,6 @@ function projectDisplay() {
 }
 
 function displayTaskList() {
-    const { projectList, currentIndex } = List;
-
     const list = document.querySelector('.project-task-display');
     while (list.hasChildNodes()) {
         list.removeChild(list.lastChild);
@@ -114,6 +105,7 @@ function displayTaskList() {
         div.addEventListener('click', (e) => {
             const index = e.target.dataset.index;
             projectList[currentIndex[0]].array.splice(index, 1);
+            storeProject();
             displayTaskList();
         });
         button.appendChild(div);

@@ -1,4 +1,4 @@
-import { List } from "./item";
+import { todoList } from "./item";
 
 const title = document.querySelector('.title');
 const description = document.querySelector('.description-display');
@@ -6,8 +6,6 @@ const priority = document.querySelector('.priority');
 const date = document.querySelector('.due-date');
 
 function displayItem(index) {
-    const { todoList } = List;
-
     title.textContent = todoList[index].title;
     description.textContent = todoList[index].description;
     priority.textContent = todoList[index].priority;

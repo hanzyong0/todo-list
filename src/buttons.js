@@ -1,4 +1,4 @@
-import { List } from "./item";
+import { todoList, projectList, currentIndex, storeProject, storeTodo } from "./item";
 import { addItemTodo, displayTodoList } from './todo';
 import { removeDisplay } from "./display";
 import { createItemForm, deleteForm, createProjectForm } from "./form";
@@ -37,10 +37,9 @@ function formDeleteButton() {
 }
 
 function removeButton(index) {
-    const { todoList } = List;
-
     todoList.splice(index, 1);
     displayTodoList();
+    storeTodo();
 }
 
 function saveButton() {
@@ -57,11 +56,11 @@ function saveButton() {
         form.style.display = 'none';
         formContainer.reset();
         deleteForm();
+        storeTodo();
     };
 }
 
 function displayDeleteButton() {
-    const { todoList, currentIndex } = List;
     const button = document.querySelector('#display-delete');
 
     button.addEventListener('click', () => {
@@ -69,6 +68,7 @@ function displayDeleteButton() {
         removeDisplay();
         displayTodoList();
         currentIndex[0] = '';
+        storeTodo();
     });
 }
 
@@ -87,14 +87,14 @@ function projectSaveButton() {
         form.style.display = 'none';
         formAddProject.reset();
         deleteForm();
+        storeProject();
     }
 }
 
 function removeProjectButton(index) {
-    const { projectList } = List;
-
     projectList.splice(index, 1);
     displayProjectList();
+    storeProject();
 }
 
 function projectFormDeleteButton() {
@@ -112,6 +112,7 @@ function taskSaveButton() {
     } else {
         addTaskProject();
         projectDisplay();
+        storeProject();
     };
 }
 

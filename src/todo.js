@@ -1,10 +1,8 @@
-import { List, Item } from "./item";
+import { todoList, currentIndex, Item } from "./item";
 import { removeButton } from './buttons';
 import { displayItem, removeDisplay } from "./display";
 
 function addItemTodo() {
-    const { todoList } = List;
-
     const title = document.querySelector('#form-title').value;
     const description = document.querySelector('#form-description').value;
     const priority = document.querySelector('#priority').value;
@@ -15,7 +13,6 @@ function addItemTodo() {
 }
 
 function displayTodoList() {
-    const { todoList, currentIndex } = List;
     const form = document.querySelector('.form-popup');
 
     const list = document.querySelector('#todo-list');
