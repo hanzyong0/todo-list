@@ -7,9 +7,19 @@ const List = (() => {
 })();
 
 // Factory function to create an item
-const Item = ((title, description, priority, date) => {
+const Item = (title, description, priority, date) => {
     return { title, description, priority, date }
-});
+};
 
+// Factory function to create a project
+const Project = (title) => {
+    return { title, array: [] };
+};
 
-export { List, Item };
+// Factory function to create a task
+const Task = (title) => {
+
+    return { title }
+};
+
+export { List, Item, Project, Task };

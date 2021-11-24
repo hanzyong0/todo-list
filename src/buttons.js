@@ -2,7 +2,7 @@ import { List } from "./item";
 import { addItemTodo, displayTodoList } from './todo';
 import { removeDisplay } from "./display";
 import { createItemForm, deleteForm, createProjectForm } from "./form";
-import { addItemProject, displayProjectList } from "./project";
+import { addItemProject, addTaskProject, displayProjectList, displayTaskList, projectDisplay } from "./project";
 
 
 function todoAddButton() {
@@ -77,6 +77,7 @@ function projectSaveButton() {
     const projectTitle = document.querySelector('#project-title');
     const formAddProject = document.querySelector('.form-add-project');
     const form = document.querySelector('.form-popup');
+    const { projectList, currentIndex } = List;
 
     if (projectTitle.value === '') {
         form.style.display = 'none';
@@ -107,7 +108,20 @@ function projectFormDeleteButton() {
     deleteForm();
 }
 
+function taskSaveButton() {
+    const form = document.querySelector('.form-popup');
+    const { currentIndex, taskList } = List;
+
+    if (document.querySelector('#task-title').value === '') {
+        projectDisplay();
+    } else {
+        addTaskProject();
+        projectDisplay();
+    };
+}
+
 export {
     todoAddButton, formDeleteButton, removeButton, saveButton, displayDeleteButton,
-    projectAddButton, projectSaveButton, removeProjectButton, projectFormDeleteButton
+    projectAddButton, projectSaveButton, removeProjectButton, projectFormDeleteButton,
+    taskSaveButton
 };

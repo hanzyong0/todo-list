@@ -16,6 +16,8 @@ function addItemTodo() {
 
 function displayTodoList() {
     const { todoList, currentIndex } = List;
+    const form = document.querySelector('.form-popup');
+
     const list = document.querySelector('#todo-list');
     while (list.hasChildNodes()) {
         list.removeChild(list.lastChild);
@@ -29,6 +31,7 @@ function displayTodoList() {
         button.addEventListener('click', (e) => {
             displayItem(e.target.dataset.index);
             currentIndex[0] = e.target.dataset.index;
+            form.style.display = 'none';
         });
         list.appendChild(button);
 

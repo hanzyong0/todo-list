@@ -1,7 +1,9 @@
-import { saveButton, formDeleteButton, projectSaveButton, projectFormDeleteButton } from './buttons';
+import { saveButton, formDeleteButton, projectSaveButton, projectFormDeleteButton, taskSaveButton } from './buttons';
+import { addTaskProject, displayTaskList } from './project';
 
 function createItemForm() {
     const formPopup = document.querySelector('.form-popup');
+    formPopup.style.backgroundColor = 'white';
 
     // Form
     const formContainer = document.createElement('form');
@@ -15,7 +17,7 @@ function createItemForm() {
 
     const title = document.createElement('label');
     title.htmlFor = 'form-title';
-    title.textContent = 'Title:'
+    title.textContent = 'Title: ';
     formTitleControl.appendChild(title);
 
     const br1 = document.createElement('br');
@@ -23,7 +25,7 @@ function createItemForm() {
 
     const formTitle = document.createElement('input');
     formTitle.type = 'text';
-    formTitle.id = 'form-title'
+    formTitle.id = 'form-title';
     formTitleControl.appendChild(formTitle);
 
     // Description
@@ -33,14 +35,14 @@ function createItemForm() {
 
     const description = document.createElement('label');
     description.htmlFor = 'form-description';
-    description.textContent = 'Description:'
+    description.textContent = 'Description:';
     formDescriptionControl.appendChild(description);
 
     const br2 = document.createElement('br');
     formDescriptionControl.appendChild(br2);
 
     const formDescription = document.createElement('textarea');
-    formDescription.id = 'form-description'
+    formDescription.id = 'form-description';
     formDescriptionControl.appendChild(formDescription);
 
     // Misc
@@ -106,6 +108,7 @@ function createProjectForm() {
     // Form
     const formAddProject = document.createElement('form');
     formAddProject.classList.add('form-add-project');
+    formAddProject.style.backgroundColor = 'white';
     formPopup.appendChild(formAddProject);
 
     const div = document.createElement('div');
@@ -123,7 +126,7 @@ function createProjectForm() {
 
     // Buttons
     const projectButtons = document.createElement('div');
-    projectButtons.classList.add('project-buttons');
+    projectButtons.id = 'project-buttons';
     formAddProject.appendChild(projectButtons);
 
     const save = document.createElement('button');
@@ -147,6 +150,54 @@ function createProjectForm() {
     projectButtons.appendChild(delete1);
 }
 
+function createTaskForm() {
+    const formPopup = document.querySelector('.form-popup');
+
+    // Form
+    const formAddProject = document.createElement('form');
+    formAddProject.classList.add('form-add-project');
+    formPopup.appendChild(formAddProject);
+
+    const div = document.createElement('div');
+    formAddProject.appendChild(div);
+
+    const label = document.createElement('label');
+    label.htmlFor = 'task-title';
+    label.textContent = 'Task Title: ';
+    div.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'task-title';
+    div.appendChild(input);
+
+    // Buttons
+    const taskButtons = document.createElement('div');
+    taskButtons.id = 'task-buttons';
+    formAddProject.appendChild(taskButtons);
+
+    const save = document.createElement('button');
+    save.classList.add('edit');
+    save.id = 'task-save';
+    save.type = 'button';
+    save.textContent = 'Save';
+    save.addEventListener('click', () => {
+        taskSaveButton();
+        displayTaskList();
+    });
+    taskButtons.appendChild(save);
+
+    const delete1 = document.createElement('button');
+    delete1.classList.add('delete');
+    delete1.id = 'task-delete';
+    delete1.type = 'button';
+    delete1.textContent = 'Delete';
+    delete1.addEventListener('click', () => {
+
+    });
+    taskButtons.appendChild(delete1);
+}
+
 function deleteForm() {
     const formPopup = document.querySelector('.form-popup');
 
@@ -155,4 +206,4 @@ function deleteForm() {
     };
 }
 
-export { createItemForm, deleteForm, createProjectForm };
+export { createItemForm, deleteForm, createProjectForm, createTaskForm };
