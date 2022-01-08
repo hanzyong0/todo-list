@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="./bundle.js"></script>
+</head>
+
+<body>
+    <header>Todo List</header>
+    <main>
+        <nav>
+            <div class="todo-container">
+                <div class="container-header">
+                    <p>Todo</p>
+                    <button class="round-button" id="todo-add" type="button">+</button>
+                </div>
+                <div class="list-display" id="todo-list">
+                </div>
+            </div>
+            <hr>
+            <div class="project-container">
+                <div class="container-header">
+                    <p>Projects</p>
+                    <button class="round-button" id="project-add" type="button">+</button>
+                </div>
+                <div class="list-display" id="project-list">
+
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="form-popup">
+
+            </div>
+            <div class="content-display">
+                <div class="title"></div>
+                <p>Description:</p>
+                <div class="description-display"></div>
+                <div class="misc-display">
+                    <div>Priority: <span class="priority"></span></div>
+                    <div>Due Date: <span class="due-date"></span></div>
+                </div>
+                <div class="content-button">
+                    <button class="delete" id="display-delete" type="button">Delete</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
